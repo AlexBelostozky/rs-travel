@@ -1,7 +1,10 @@
 <template>
-  <rsAbout />
-  <rsRewievs />
-  <rsChat />
+  <main class="rsTravel">
+    <h1 class="visually-hidden">Приглашаем посетить Барселону!</h1>
+    <rsAbout />
+    <rsRewievs />
+    <rsChat />
+  </main>
 </template>
 
 <script>
@@ -10,7 +13,7 @@ import rsRewievs from "./components/rsRewievs.vue";
 import rsChat from "./components/rsChat.vue";
 
 export default {
-  name: "rsAbout",
+  name: "rsTravel",
   components: {
     rsAbout,
     rsRewievs,
@@ -19,4 +22,15 @@ export default {
 };
 </script>
 
-<style lang="less"></style>
+<style lang="less">
+@import "./assets/globalStyles/styles.less";
+
+.rsTravel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 879px;
+  padding: 110px 0 134px;
+  margin: 0 auto;
+}
+</style>
