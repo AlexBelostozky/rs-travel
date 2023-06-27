@@ -44,6 +44,8 @@ export default {
 @import "../assets/globalStyles/styles.less";
 
 .rsRewievs {
+  box-sizing: border-box;
+  width: 100%;
   background-color: @white;
   padding: 35px 30px;
 }
@@ -51,15 +53,39 @@ export default {
 .rsRewievs__title {
   font-size: 29px;
   line-height: 35px;
+  letter-spacing: 0.87px;
   margin: 0;
   margin-bottom: 21px;
 }
 
 .rsRewievs__list {
+  position: relative;
+  display: flex;
+  overflow: hidden;
   list-style: none;
   margin: 0;
   margin-bottom: 32px;
   padding: 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px; /* Задайте необходимую ширину для тени */
+    z-index: 1; /* Установите значение z-index для тени */
+  }
+
+  &::before {
+    left: 0; /* Тень на левой стороне контейнера */
+    box-shadow: inset 15px 0 20px -20px rgba(0, 0, 0, 0.3); /* Установите параметры тени */
+  }
+
+  &::after {
+    right: 0; /* Тень на правой стороне контейнера */
+    box-shadow: inset -15px 0px 20px -20px rgba(0, 0, 0, 0.3); /* Установите параметры тени */
+  }
 }
 
 .rsRewievs__control-wrapper {
