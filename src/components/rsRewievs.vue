@@ -47,6 +47,7 @@ export default {
   box-sizing: border-box;
   width: 100%;
   background-color: @white;
+  margin-bottom: 20px;
   padding: 35px 30px;
 }
 
