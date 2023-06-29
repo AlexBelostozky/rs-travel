@@ -35,7 +35,7 @@ export default {
 
 .rsChat__divider {
   width: 2px;
-  height: 100%;
+  min-height: 100%;
   background-color: @decorative-gray;
 }
 </style>
