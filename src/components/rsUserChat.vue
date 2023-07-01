@@ -250,11 +250,14 @@ export default {
 
     sendMessage() {
       const messageDate = new Date().toJSON();
-      let newMessage = "";
+      let newMessage = [];
+      const normalizedInput = this.messageInput.trim();
 
-      if (this.messageInput) {
+      if (normalizedInput) {
         newMessage = [this.addresser.id, messageDate, this.messageInput];
         this.$store.commit("addNewMessage", newMessage);
+        this.messageInput = "";
+      } else {
         this.messageInput = "";
       }
 
