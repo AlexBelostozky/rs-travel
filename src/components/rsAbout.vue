@@ -55,6 +55,7 @@ export default {
   letter-spacing: 0.87px;
   margin: 0;
   margin-bottom: 19px;
+  word-break: break-word;
 }
 
 .rsAbout__description {
@@ -63,6 +64,7 @@ export default {
   line-height: 25px;
   margin: 0;
   margin-bottom: 6px;
+  word-break: break-word;
 }
 
 .rsAbout__link {
@@ -76,6 +78,7 @@ export default {
   width: fit-content;
   margin: 0;
   transition: all 0.2s ease-in-out;
+  word-break: break-word;
 
   &:hover,
   &:focus {

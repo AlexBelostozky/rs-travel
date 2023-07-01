@@ -1,28 +1,31 @@
 <template>
   <section class="rsUserChat">
-    <h2 class="rsUserChat__heading">Чат с администратором</h2>
+    <h2 class="rsUserChat__heading">{{ addresser.chatTitle }}</h2>
 
     <div class="rsUserChat__chat-window">
       <header class="rsUserChat__header">
         <img
           class="rsUserChat__addressee-avatar"
-          src="#"
-          srcset="# 2x"
+          :src="require(`@/assets/images/content/${addressee.avatar}`)"
           alt="Аватар администратора"
           width="44"
           height="44"
         />
 
         <div class="rsUserChat__addressee-info">
-          <h3 class="rsUserChat__addressee-name">Наталия Полянская</h3>
+          <h3 class="rsUserChat__addressee-name">{{ addressee.name }}</h3>
 
-          <p class="rsUserChat__addressee-role">Гид по Баварии, фотограф</p>
+          <p class="rsUserChat__addressee-role">
+            {{ addressee.roleDescription }}
+          </p>
         </div>
 
-        <div class="rsUserChat__addressee-rating">
+        <div class="rsUserChat__addressee-rating" v-if="addressee.ratingValue">
           <span class="visually-hidden">
             Рейтинг:
-            <span class="rsUserChat__addressee-rating-value">4</span>
+            <span class="rsUserChat__addressee-rating-value">
+              {{ addressee.ratingValue }}
+            </span>
           </span>
 
           <ul class="rsUserChat__addressee-rating-list">
@@ -51,9 +54,8 @@
               </svg>
             </li>
 
-            <li
-              class="rsUserChat__addressee-rating-item rsUserChat__addressee-rating-item--filled"
-            >
+            <!-- Для стилизации заполнения звезды рейтинга добавить модификатор filled -->
+            <li class="rsUserChat__addressee-rating-item">
               <svg
                 class="rsUserChat__addressee-rating-icon"
                 width="13"
@@ -64,9 +66,7 @@
               </svg>
             </li>
 
-            <li
-              class="rsUserChat__addressee-rating-item rsUserChat__addressee-rating-item--filled"
-            >
+            <li class="rsUserChat__addressee-rating-item">
               <svg
                 class="rsUserChat__addressee-rating-icon"
                 width="13"
@@ -77,9 +77,7 @@
               </svg>
             </li>
 
-            <li
-              class="rsUserChat__addressee-rating-item rsUserChat__addressee-rating-item--filled"
-            >
+            <li class="rsUserChat__addressee-rating-item">
               <svg
                 class="rsUserChat__addressee-rating-icon"
                 width="13"
@@ -104,85 +102,50 @@
         </div>
       </header>
 
-      <!-- <div class="rsUserChat__messages-list-container"> -->
-      <ul class="rsUserChat__messages-list">
-        <li class="rsUserChat__message">
+      <ul
+        class="rsUserChat__messages-list"
+        :id="'messages-list-' + addresser.id"
+      >
+        <!-- Для стилизации сообщения отправителя добавить модификатор  highlighted-->
+        <li
+          class="rsUserChat__message"
+          :class="{
+            'rsUserChat__message--highlighted':
+              message.senderId === addresser.id,
+          }"
+          v-for="message in $store.state.messages"
+          :key="message.date"
+        >
           <img
             class="rsUserChat__message-avatar"
-            src="#"
-            srcset="# 2x"
-            alt="Аватар администратора"
+            :src="
+              require(`@/assets/images/content/user${message.senderId}-avatar.jpg`)
+            "
+            :alt="
+              message.senderId === addresser.id
+                ? 'Ваш аватар'
+                : 'Аватар адресата'
+            "
             width="44"
             height="44"
           />
 
           <div class="rsUserChat__message-wrapper">
             <p class="rsUserChat__message-text">
-              Из достопримечательностей могу предложить обратить внимание на
-              вулкан Майон, путешествие запомнится вам надолго хотя бы из-за
-              невероятной сложности подъема на него. Поверьте, это стоит того;
-              также хотела бы отметить очень важную область исследования
+              {{ message.text }}
             </p>
 
-            <time class="rsUserChat__message-time" datetime="2023-06-27T18:45">
-              Вчера в 18:45
-            </time>
-          </div>
-        </li>
-
-        <li class="rsUserChat__message">
-          <img
-            class="rsUserChat__message-avatar"
-            src="#"
-            srcset="# 2x"
-            alt="Аватар администратора"
-            width="44"
-            height="44"
-          />
-
-          <div class="rsUserChat__message-wrapper">
-            <p class="rsUserChat__message-text">
-              Из достопримечательностей могу предложить обратить внимание на
-              вулкан Майон, путешествие запомнится вам надолго хотя бы из-за
-              невероятной сложности подъема на него. Поверьте, это стоит того;
-              также хотела бы отметить очень важную область исследования
-            </p>
-
-            <time class="rsUserChat__message-time" datetime="2023-06-27T18:45">
-              Вчера в 18:45
-            </time>
-          </div>
-        </li>
-
-        <li class="rsUserChat__message rsUserChat__message--highlighted">
-          <img
-            class="rsUserChat__message-avatar"
-            src="#"
-            srcset="# 2x"
-            alt="Ваш аватар"
-            width="44"
-            height="44"
-          />
-
-          <div class="rsUserChat__message-wrapper">
-            <p class="rsUserChat__message-text">
-              Что из себя представляет вулкан? Просто хочу убедиться, что готова
-              к такому путешествию.
-            </p>
-
-            <time class="rsUserChat__message-time" datetime="2023-06-27T18:46">
-              Вчера в 18:46
+            <time class="rsUserChat__message-time" :datetime="message.date">
+              {{ formatDate(message.date) }}
             </time>
           </div>
         </li>
       </ul>
-      <!-- </div> -->
 
       <form class="rsUserChat__form" action="#">
         <img
           class="rsUserChat__adresser-avatar"
-          src="#"
-          srcset="# 2x"
+          :src="require(`@/assets/images/content/${addresser.avatar}`)"
           alt="Ваш аватар"
           width="44"
           height="44"
@@ -197,9 +160,14 @@
           name="new-message"
           placeholder="Напишите сообщение..."
           autocomplete="off"
+          v-model="messageInput"
         />
 
-        <button class="rsUserChat__submit-button" type="submit">
+        <button
+          class="rsUserChat__submit-button"
+          type="submit"
+          @click.prevent="sendMessage()"
+        >
           <span class="visually-hidden">Отправить сообщение</span>
 
           <svg class="rsUserChat__addressee-rating-icon" width="22" height="22">
@@ -212,12 +180,93 @@
 </template>
 
 <script>
-// import rsUserChat from "../components/rsUserChat.vue";
-// import rsAdminChat from "../components/rsAdminChat.vue";
+import moment from "moment";
 
 export default {
   name: "rsUserChat",
   components: {},
+  props: {
+    addresser: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+    addressee: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
+
+  data() {
+    return {
+      ratingStars: null,
+      messageInput: "",
+      messagesList: null,
+    };
+  },
+
+  mounted() {
+    this.initUserChat();
+  },
+
+  methods: {
+    initUserChat() {
+      // eslint-disable-next-line prettier/prettier
+      this.ratingStars = document.querySelectorAll(".rsUserChat__addressee-rating-item");
+      // eslint-disable-next-line prettier/prettier
+      this.messagesList = document.getElementById(`messages-list-${this.addresser.id}`);
+
+      this.fillRatingStars();
+      this.scrollToLastMessage();
+    },
+
+    fillRatingStars() {
+      for (let i = 0; i <= this.addressee.ratingValue - 1; i++) {
+        // eslint-disable-next-line prettier/prettier
+        this.ratingStars[i].classList.add("rsUserChat__addressee-rating-item--filled")
+      }
+    },
+
+    formatDate(utcDate) {
+      const now = moment();
+      const date = moment(utcDate);
+
+      // Формат "HH:MM" для сегодняшней даты
+      if (date.isSame(now, "day")) {
+        return date.format("HH:mm");
+      }
+
+      // Формат "Вчера в HH:MM" для предыдущего календарного дня
+      if (date.isSame(now.clone().subtract(1, "day"), "day")) {
+        return `Вчера в ${date.format("HH:mm")}`;
+      }
+
+      // Формат "DD.MM.YY HH:MM" для остальных дат
+      return date.format("DD.MM.YY HH:mm");
+    },
+
+    sendMessage() {
+      const messageDate = new Date().toJSON();
+      let newMessage = "";
+
+      if (this.messageInput) {
+        newMessage = [this.addresser.id, messageDate, this.messageInput];
+        this.$store.commit("addNewMessage", newMessage);
+        this.messageInput = "";
+      }
+
+      this.scrollToLastMessage();
+    },
+
+    scrollToLastMessage() {
+      setTimeout(() => {
+        this.messagesList.scrollTop = this.messagesList.scrollHeight;
+      }, 100);
+    },
+  },
 };
 </script>
 
@@ -230,11 +279,12 @@ export default {
   letter-spacing: 0.87px;
   margin: 0;
   margin-bottom: 25px;
+  word-break: break-word;
 }
 
 .rsUserChat__chat-window {
   display: grid;
-  grid-template-rows: min-content 496px min-content;
+  grid-template-rows: min-content 1fr min-content;
   width: 415px;
   height: 698px;
   background-color: @white;
@@ -261,6 +311,7 @@ export default {
   line-height: 20px;
   margin: 0;
   margin-bottom: 7px;
+  word-break: break-word;
 }
 
 .rsUserChat__addressee-role {
@@ -270,6 +321,7 @@ export default {
   color: @red;
   margin: 0;
   padding-left: 12px;
+  word-break: break-word;
 
   &::before {
     content: "";
@@ -350,6 +402,7 @@ export default {
 .rsUserChat__message-text {
   line-height: 24px;
   margin: 0;
+  word-break: break-word;
 }
 
 .rsUserChat__message-time {
@@ -414,5 +467,18 @@ export default {
   background-color: transparent;
   cursor: pointer;
   padding: 10px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:focus {
+    outline: 1px solid @red;
+  }
+
+  &:active {
+    transform: scale(1);
+  }
 }
 </style>

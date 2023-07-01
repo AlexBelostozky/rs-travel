@@ -156,6 +156,7 @@ export default {
   font-size: 15px;
   font-weight: 400;
   line-height: 17px;
+  word-break: break-word;
 }
 
 .rsRewiev__link {
@@ -178,6 +179,7 @@ export default {
   text-transform: uppercase;
   margin: 0;
   margin-bottom: 12px;
+  word-break: break-word;
 }
 
 .rsRewiev__city {
@@ -196,6 +198,7 @@ export default {
   font-size: 15px;
   line-height: 25px;
   margin: 0;
+  word-break: break-word;
 }
 
 .rsRewiev__photos-list {
@@ -235,11 +238,13 @@ export default {
 
 .rsRewiev__date {
   margin-right: 11px;
+  word-break: break-word;
 }
 
 .rsRewiev__comments-link {
   color: @secondary-gray;
   text-decoration: none;
+  word-break: break-word;
 }
 
 .rsRewiev__likes-wrapper {
@@ -261,6 +266,7 @@ export default {
   transition: all 0.1s ease-in-out;
   stroke: #a0a0a0;
   color: transparent;
+  word-break: break-word;
 
   &:hover,
   &:focus {

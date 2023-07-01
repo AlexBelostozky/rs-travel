@@ -1,10 +1,16 @@
 <template>
   <div class="rsChat">
-    <rsUserChat />
+    <rsUserChat
+      :addresser="$store.state.users[1]"
+      :addressee="$store.state.users[0]"
+    />
 
     <div class="rsChat__divider"></div>
 
-    <rsUserChat />
+    <rsUserChat
+      :addresser="$store.state.users[0]"
+      :addressee="$store.state.users[1]"
+    />
   </div>
 </template>
 

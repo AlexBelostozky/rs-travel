@@ -92,8 +92,6 @@ export default {
       this.slider.classList.add("rsRewievs__list-wrapper--sadowed-right");
 
       // eslint-disable-next-line prettier/prettier
-      this.centerOffset = this.sliderWidth / 2 - (this.slideWidth + this.slidesGap) / 2;
-      // eslint-disable-next-line prettier/prettier
       this.endOffset = this.sliderWidth - (this.slideWidth + this.slidesGap * (this.slidesAmount - 1));
       // console.log(this.$store.state.rewievsData.length);
     },
@@ -148,6 +146,7 @@ export default {
   letter-spacing: 0.87px;
   margin: 0;
   margin-bottom: 21px;
+  word-break: break-word;
 }
 
 .rsRewievs__list-wrapper {

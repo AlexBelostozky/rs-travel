@@ -239,6 +239,7 @@ export default createStore({
         role: "admin",
         chatTitle: "Чат с пользователем",
         name: "Администратор Администраторов",
+        avatar: "user0-avatar.jpg",
         roleDescription: "Гид по Баварии, фотограф",
         ratingValue: 4,
       },
@@ -247,24 +248,25 @@ export default createStore({
         role: "client",
         chatTitle: "Чат с администратором",
         name: "Наталия Полянская",
+        avatar: "user1-avatar.jpg",
         roleDescription: "TravelAsk",
       },
     ],
 
     messages: [
       {
-        senderId: "0",
-        date: "2023-06-01T16:43:21.180Z",
+        senderId: 0,
+        date: "2023-07-01T16:43:21.180Z",
         text: "Из достопримечательностей могу предложить обратить внимание на вулкан Майон, путешествие запомнится вам надолго хотя бы из-за невероятной сложности подъема на него. Поверьте, это стоит того; также хотела бы отметить очень важную область исследования",
       },
       {
-        senderId: "1",
-        date: "2023-06-01T16:45:20.180Z",
+        senderId: 1,
+        date: "2023-07-01T16:45:20.180Z",
         text: "Что из себя представляет вулкан? Просто хочу убедиться, что готова к такому путешествию.",
       },
       {
-        senderId: "1",
-        date: "2023-06-01T16:46:01.180Z",
+        senderId: 0,
+        date: "2023-07-01T18:46:01.180Z",
         text: "Просто обычный вулкан как и все остальные. Ничего осебенного. Лучше съешьте ещё этих мягких барселонских булок да выпейте чаю.",
       },
     ],
@@ -281,6 +283,14 @@ export default createStore({
         state.rewievsData[rewievId].likeStatus = false;
         state.rewievsData[rewievId].likesCount--;
       }
+    },
+
+    addNewMessage(state, newMessage) {
+      state.messages.push({
+        senderId: newMessage[0],
+        date: newMessage[1],
+        text: newMessage[2],
+      });
     },
   },
   actions: {},
