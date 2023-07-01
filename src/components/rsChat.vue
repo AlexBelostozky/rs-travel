@@ -4,19 +4,19 @@
 
     <div class="rsChat__divider"></div>
 
-    <rsAdminChat />
+    <rsUserChat />
   </div>
 </template>
 
 <script>
 import rsUserChat from "../components/rsUserChat.vue";
-import rsAdminChat from "../components/rsAdminChat.vue";
+// import rsAdminChat from "../components/rsAdminChat.vue";
 
 export default {
   name: "rsChat",
   components: {
     rsUserChat,
-    rsAdminChat,
+    // rsAdminChat,
   },
 };
 </script>
