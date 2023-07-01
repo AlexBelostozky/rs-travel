@@ -75,9 +75,9 @@ export default createStore({
           },
         ],
         date: "5 месяцев назад",
-        commentsCount: 3,
+        commentsCount: 6,
         likesCount: 7,
-        likeStatus: false,
+        likeStatus: true,
       },
       {
         id: 2,
@@ -115,6 +115,120 @@ export default createStore({
         date: "3 месяца назад",
         commentsCount: 9,
         likesCount: 11,
+        likeStatus: false,
+      },
+      {
+        id: 3,
+        authorAvatar: "author-avatar.jpg",
+        authorName: "Ирина Иванова",
+        city: "Барселона",
+        theme: "О городе",
+        text: "Барселона – моя третья большая любовь, после Вены и Крита. Это город, в который я каждый раз возвращаюсь с огромным удовольствием, всем рекомендую хоть раз там побывать и осмотреть ...",
+        photos: [
+          {
+            thumbnail: "rewiev1.jpg",
+            full: "rewiev1-thumb.jpg",
+          },
+          {
+            thumbnail: "rewiev2.jpg",
+            full: "rewiev2-thumb.jpg",
+          },
+          {
+            thumbnail: "rewiev3.jpg",
+            full: "rewiev3-thumb.jpg",
+          },
+          {
+            thumbnail: "rewiev4.jpg",
+            full: "rewiev4-thumb.jpg",
+          },
+          {
+            thumbnail: "rewiev5.jpg",
+            full: "rewiev5-thumb.jpg",
+          },
+          {
+            thumbnail: "rewiev6.jpg",
+            full: "rewiev6-thumb.jpg",
+          },
+        ],
+        date: "3 месяца назад",
+        commentsCount: 11,
+        likesCount: 15,
+        likeStatus: true,
+      },
+      {
+        id: 4,
+        authorAvatar: "author-avatar.jpg",
+        authorName: "Роксана Харитонович",
+        city: "Барселона",
+        theme: "О городе",
+        text: "Барселона – моя третья большая любовь, после Вены и Крита. Это город, в который я каждый раз возвращаюсь с огромным удовольствием, всем рекомендую хоть раз там побывать и осмотреть ...",
+        photos: [
+          {
+            thumbnail: "rewiev1.jpg",
+            full: "rewiev1-thumb.jpg",
+          },
+          {
+            thumbnail: "rewiev2.jpg",
+            full: "rewiev2-thumb.jpg",
+          },
+          {
+            thumbnail: "rewiev3.jpg",
+            full: "rewiev3-thumb.jpg",
+          },
+          {
+            thumbnail: "rewiev4.jpg",
+            full: "rewiev4-thumb.jpg",
+          },
+          {
+            thumbnail: "rewiev5.jpg",
+            full: "rewiev5-thumb.jpg",
+          },
+          {
+            thumbnail: "rewiev6.jpg",
+            full: "rewiev6-thumb.jpg",
+          },
+        ],
+        date: "3 месяца назад",
+        commentsCount: 11,
+        likesCount: 14,
+        likeStatus: false,
+      },
+      {
+        id: 5,
+        authorAvatar: "author-avatar.jpg",
+        authorName: "Johanna Stingray",
+        city: "Барселона",
+        theme: "О городе",
+        text: "Барселона – моя вторая большая любовь, после Кипра. Это город, в который я каждый раз возвращаюсь с огромным удовольствием, всем рекомендую хоть раз там побывать и осмотреть ...",
+        photos: [
+          {
+            thumbnail: "rewiev1.jpg",
+            full: "rewiev1-thumb.jpg",
+          },
+          {
+            thumbnail: "rewiev2.jpg",
+            full: "rewiev2-thumb.jpg",
+          },
+          {
+            thumbnail: "rewiev3.jpg",
+            full: "rewiev3-thumb.jpg",
+          },
+          {
+            thumbnail: "rewiev4.jpg",
+            full: "rewiev4-thumb.jpg",
+          },
+          {
+            thumbnail: "rewiev5.jpg",
+            full: "rewiev5-thumb.jpg",
+          },
+          {
+            thumbnail: "rewiev6.jpg",
+            full: "rewiev6-thumb.jpg",
+          },
+        ],
+        date: "3 месяца назад",
+        commentsCount: 13,
+        likesCount: 16,
         likeStatus: false,
       },
     ],

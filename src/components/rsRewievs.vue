@@ -120,17 +120,13 @@ export default {
         default:
           this.centerOffsetNeed = 1;
           this.endOffsetNeed = 0;
+          // eslint-disable-next-line prettier/prettier
+          this.centerOffset = this.sliderWidth / 2 - (this.slideWidth + this.slidesGap) / 2 - this.slidesGap * (order - 1);
           this.slider.classList.add("rsRewievs__list-wrapper--sadowed-right");
           this.slider.classList.add("rsRewievs__list-wrapper--sadowed-left");
           break;
       }
-
-      // changeSlide();
     },
-
-    // changeSlide() {
-
-    // },
   },
 };
 </script>
@@ -158,27 +154,6 @@ export default {
   position: relative;
   overflow: hidden;
   margin-bottom: 32px;
-
-  // &::before,
-  // &::after {
-  //   content: "";
-  //   position: absolute;
-  //   top: 0;
-  //   bottom: 0;
-  //   width: 50px;
-  //   z-index: 1;
-  //   pointer-events: none;
-  // }
-
-  // &::before {
-  //   left: 0;
-  //   box-shadow: inset 15px 0 20px -20px rgba(0, 0, 0, 0.3);
-  // }
-
-  // &::after {
-  //   right: 0; /* Тень на правой стороне контейнера */
-  //   box-shadow: inset -15px 0px 20px -20px rgba(0, 0, 0, 0.3);
-  // }
 }
 
 .rsRewievs__list-wrapper--sadowed-left {

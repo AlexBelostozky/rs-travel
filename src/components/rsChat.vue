@@ -30,7 +30,7 @@ export default {
   align-items: stretch;
   box-sizing: border-box;
   width: 100%;
-  padding: 30px 0;
+  padding: 30px 0 0 0;
 }
 
 .rsChat__divider {
