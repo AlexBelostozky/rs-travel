@@ -2,22 +2,40 @@
   <section class="rsRewievs">
     <h2 class="rsRewievs__title">Отзывы о Барселоне</h2>
 
-    <ul class="rsRewievs__list">
-      <rsRewiev />
-    </ul>
+    <div class="rsRewievs__list-wrapper">
+      <ul
+        class="rsRewievs__list"
+        :style="{
+          // eslint-disable-next-line prettier/prettier
+          transform: 'translateX(' + (- this.sliderCount * this.slideWidth + this.centerOffset * this.centerOffsetNeed + this.endOffset * this.endOffsetNeed) + 'px)',
+        }"
+      >
+        <rsRewiev
+          v-for="rewiev in $store.state.rewievsData"
+          :key="rewiev.id"
+          :rewievData="rewiev"
+        />
+      </ul>
+    </div>
 
     <div class="rsRewievs__control-wrapper">
       <a class="rsRewievs__button" href="#">Все отзывы</a>
 
       <nav class="rsRewievs__pagination">
         <ul class="rsRewievs__pagination-list">
-          <li class="rsRewievs__pagination-item">
-            <label class="rsRewievs__pagination-item-control">
+          <li
+            class="rsRewievs__pagination-item"
+            v-for="rewiev in $store.state.rewievsData"
+            :key="rewiev.id"
+          >
+            <label
+              class="rsRewievs__pagination-item-control"
+              @click="onPaginationButtonClick(rewiev.id)"
+            >
               <input
                 class="rsRewievs__pagination-item-control-input"
                 type="radio"
                 name="slide-to-show"
-                value="1"
               />
 
               <span class="rsRewievs__pagination-item-control-mark"></span>
@@ -36,6 +54,83 @@ export default {
   name: "rsRewievs",
   components: {
     rsRewiev,
+  },
+  data() {
+    return {
+      slider: null,
+      sliderCount: 0,
+      slideWidth: 320,
+      sliderWidth: null,
+      sliderLineWidth: null,
+      slidesGap: null,
+      slidesAmount: null,
+      centerOffset: null,
+      centerOffsetNeed: 0,
+      endOffset: null,
+      endOffsetNeed: 0,
+    };
+  },
+  mounted() {
+    this.initSlider();
+  },
+  methods: {
+    initSlider() {
+      // eslint-disable-next-line prettier/prettier
+      const paginationButtons = document.querySelectorAll(".rsRewievs__pagination-item-control-input");
+      this.slider = document.querySelector(".rsRewievs__list-wrapper");
+      const sliderLine = document.querySelector(".rsRewievs__list");
+      const slide = document.querySelector(".rsRewiev");
+
+      this.slidesAmount = this.$store.state.rewievsData.length;
+      this.sliderWidth = this.slider.offsetWidth;
+      this.sliderLineWidth = sliderLine.scrollWidth;
+      this.slideWidth = slide.offsetWidth;
+      // eslint-disable-next-line prettier/prettier
+      this.slidesGap = (this.sliderLineWidth - this.slideWidth * this.slidesAmount) / (this.slidesAmount - 1);
+
+      paginationButtons[this.sliderCount].checked = true;
+      this.slider.classList.add("rsRewievs__list-wrapper--sadowed-right");
+
+      // eslint-disable-next-line prettier/prettier
+      this.centerOffset = this.sliderWidth / 2 - (this.slideWidth + this.slidesGap) / 2;
+      // eslint-disable-next-line prettier/prettier
+      this.endOffset = this.sliderWidth - (this.slideWidth + this.slidesGap * (this.slidesAmount - 1));
+      // console.log(this.$store.state.rewievsData.length);
+    },
+
+    onPaginationButtonClick(order) {
+      this.sliderCount = order;
+
+      switch (order) {
+        case 0:
+          this.centerOffsetNeed = 0;
+          this.endOffsetNeed = 0;
+          this.slider.classList.add("rsRewievs__list-wrapper--sadowed-right");
+          this.slider.classList.remove("rsRewievs__list-wrapper--sadowed-left");
+          break;
+
+        case this.slidesAmount - 1:
+          this.centerOffsetNeed = 0;
+          this.endOffsetNeed = 1;
+          // eslint-disable-next-line prettier/prettier
+          this.slider.classList.remove("rsRewievs__list-wrapper--sadowed-right");
+          this.slider.classList.add("rsRewievs__list-wrapper--sadowed-left");
+          break;
+
+        default:
+          this.centerOffsetNeed = 1;
+          this.endOffsetNeed = 0;
+          this.slider.classList.add("rsRewievs__list-wrapper--sadowed-right");
+          this.slider.classList.add("rsRewievs__list-wrapper--sadowed-left");
+          break;
+      }
+
+      // changeSlide();
+    },
+
+    // changeSlide() {
+
+    // },
   },
 };
 </script>
@@ -59,34 +154,73 @@ export default {
   margin-bottom: 21px;
 }
 
-.rsRewievs__list {
+.rsRewievs__list-wrapper {
   position: relative;
-  display: flex;
   overflow: hidden;
-  list-style: none;
-  margin: 0;
   margin-bottom: 32px;
-  padding: 0;
 
-  &::before,
+  // &::before,
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   bottom: 0;
+  //   width: 50px;
+  //   z-index: 1;
+  //   pointer-events: none;
+  // }
+
+  // &::before {
+  //   left: 0;
+  //   box-shadow: inset 15px 0 20px -20px rgba(0, 0, 0, 0.3);
+  // }
+
+  // &::after {
+  //   right: 0; /* Тень на правой стороне контейнера */
+  //   box-shadow: inset -15px 0px 20px -20px rgba(0, 0, 0, 0.3);
+  // }
+}
+
+.rsRewievs__list-wrapper--sadowed-left {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    box-shadow: inset 15px 0 20px -20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.rsRewievs__list-wrapper--sadowed-right {
   &::after {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 50px; /* Задайте необходимую ширину для тени */
-    z-index: 1; /* Установите значение z-index для тени */
-  }
-
-  &::before {
-    left: 0; /* Тень на левой стороне контейнера */
-    box-shadow: inset 15px 0 20px -20px rgba(0, 0, 0, 0.3); /* Установите параметры тени */
+    width: 50px;
+    z-index: 1;
+    pointer-events: none;
   }
 
   &::after {
     right: 0; /* Тень на правой стороне контейнера */
-    box-shadow: inset -15px 0px 20px -20px rgba(0, 0, 0, 0.3); /* Установите параметры тени */
+    box-shadow: inset -15px 0px 20px -20px rgba(0, 0, 0, 0.3);
   }
+}
+
+.rsRewievs__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: all 0.2s ease-in-out;
 }
 
 .rsRewievs__control-wrapper {

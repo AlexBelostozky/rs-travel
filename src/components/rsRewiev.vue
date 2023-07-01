@@ -4,38 +4,42 @@
       <div class="rsRewiev__author">
         <img
           class="rsRewiev__author-avatar"
-          src="#"
-          srcset="# 2x"
+          :src="require(`@/assets/images/content/${rewievData.authorAvatar}`)"
           alt="Аватар"
           width="30"
           height="30"
         />
 
-        <figcaption class="rsRewiev__author-name">Наталия Полянская</figcaption>
+        <figcaption class="rsRewiev__author-name">
+          {{ rewievData.authorName }}
+        </figcaption>
       </div>
 
       <a class="rsRewiev__link" href="#">
         <h3 class="rsRewiev__heading">
-          <span class="rsRewiev__city">Барселона</span>
+          <span class="rsRewiev__city">{{ rewievData.city }}</span>
           –
-          <span class="rsRewiev__theme">О городе</span>:
+          <span class="rsRewiev__theme">{{ rewievData.theme }}</span
+          >:
         </h3>
 
         <blockquote class="rsRewiev__quote">
           <p class="rsRewiev__quote-text">
-            Барселона – моя третья большая любовь, после Вены и Крита. Это
-            город, в который я каждый раз возвращаюсь с огромным удовольствием,
-            всем рекомендую хоть раз там побывать и осмотреть ...
+            {{ rewievData.text }}
           </p>
         </blockquote>
       </a>
 
       <ul class="rsRewiev__photos-list">
-        <li class="rsRewiev__photos-item">
+        <li
+          class="rsRewiev__photos-item"
+          v-for="photo in getMainRewievPhotos"
+          :key="photo"
+        >
           <a class="rsRewiev__photos-link" href="#">
             <img
               class="rsRewiev__photo"
-              src="#"
+              :src="require(`@/assets/images/content/${photo.thumbnail}`)"
               alt="Фото пользователя о поездке в Берселону"
               width="50"
               height="50"
@@ -46,16 +50,25 @@
 
       <div class="rsRewiev__meta">
         <time class="rsRewiev__date" datetime="2022-06-27">
-          Около 1 года назад
+          {{ rewievData.date }}
         </time>
 
         <a class="rsRewiev__comments-link" href="#">
-          • <span class="rsRewiev__comments-count">9</span> комментариев
+          •
+          <span class="rsRewiev__comments-count">
+            {{ rewievData.commentsCount }}
+          </span>
+          комментариев
         </a>
 
         <div class="rsRewiev__likes-wrapper">
           <!-- Для стилизации состояния поставленного лайка добавить модификатор liked -->
-          <button class="rsRewiev__likes-button" type="button">
+          <button
+            class="rsRewiev__likes-button"
+            :class="{ 'rsRewiev__likes-button--liked': rewievData.likeStatus }"
+            type="button"
+            @click="onLikesButtonClick()"
+          >
             <span class="visually-hidden">Отметить отзыв как полезнный</span>
             <svg
               class="rsRewiev__likes-button-icon"
@@ -67,7 +80,9 @@
             </svg>
           </button>
 
-          <span class="rsRewiev__likes-count">9</span>
+          <span class="rsRewiev__likes-count">
+            {{ rewievData.likesCount }}
+          </span>
         </div>
       </div>
     </figure>
@@ -77,6 +92,24 @@
 <script>
 export default {
   name: "rsRewiev",
+  props: {
+    rewievData: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
+  computed: {
+    getMainRewievPhotos() {
+      return this.rewievData.photos.slice(0, 4);
+    },
+  },
+  methods: {
+    onLikesButtonClick() {
+      this.$store.commit("updateLikeStatus", this.rewievData);
+    },
+  },
 };
 </script>
 
@@ -91,6 +124,10 @@ export default {
   background-color: @sand;
   margin-right: 20px;
   padding: 26px 12px 26px 19px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .rsRewiev__container {
@@ -108,6 +145,11 @@ export default {
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 28px;
+}
+
+.rsRewiev__author-avatar {
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .rsRewiev__author-name {
@@ -170,6 +212,13 @@ export default {
   margin: 0;
   margin-right: 5px;
   padding: 0;
+}
+
+.rsRewiev__photo {
+  display: block;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
 }
 
 .rsRewiev__meta {
@@ -236,5 +285,10 @@ export default {
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+}
+
+.rsRewiev__likes-count {
+  display: block;
+  min-width: 15px;
 }
 </style>
