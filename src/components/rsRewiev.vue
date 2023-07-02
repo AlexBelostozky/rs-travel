@@ -33,7 +33,7 @@
       <ul class="rsRewiev__photos-list">
         <li
           class="rsRewiev__photos-item"
-          v-for="photo in getMainRewievPhotos"
+          v-for="(photo, idx) in getMainRewievPhotos"
           :key="photo"
         >
           <a class="rsRewiev__photos-link" href="#">
@@ -46,6 +46,19 @@
               height="50"
             />
           </a>
+
+          <div
+            class="rsRewiev__photos-uplimit"
+            :class="{
+              'rsRewiev__photos-uplimit--show':
+                idx + 1 === getMainRewievPhotos.length &&
+                this.photosUplimit > 0,
+            }"
+          >
+            <span class="rsRewiev__photos-uplimit-text">
+              + {{ this.photosUplimit }}</span
+            >
+          </div>
         </li>
       </ul>
 
@@ -104,10 +117,14 @@ export default {
 
   data() {
     return {
-      // showGallery: false,
-      // galleryPhotos: [],
-      // galleyStartPhoto: "",
+      photosUplimit: 0,
+      mainRewievPhotos: [],
     };
+  },
+
+  mounted() {
+    this.defineMainRewievPhotos();
+    this.getPhotosUplimit();
   },
 
   computed: {
@@ -117,6 +134,10 @@ export default {
   },
 
   methods: {
+    defineMainRewievPhotos() {
+      this.mainRewievPhotos = this.rewievData.photos.slice(0, 4);
+    },
+
     onLikesButtonClick() {
       this.$store.commit("updateLikeStatus", this.rewievData);
     },
@@ -129,6 +150,11 @@ export default {
       newGalleryState.selectedPhoto = selectedPhotoName;
 
       this.$store.commit("updateGalleryState", newGalleryState);
+    },
+
+    getPhotosUplimit() {
+      // eslint-disable-next-line prettier/prettier
+      this.photosUplimit = this.rewievData.photos.length - this.mainRewievPhotos.length;
     },
   },
 };
@@ -233,6 +259,7 @@ export default {
 }
 
 .rsRewiev__photos-item {
+  position: relative;
   margin: 0;
   margin-right: 5px;
   padding: 0;
@@ -243,6 +270,28 @@ export default {
   width: 50px;
   height: 50px;
   object-fit: cover;
+}
+
+.rsRewiev__photos-uplimit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+  color: @white;
+  background-color: rgba(16, 16, 16, 0.4);
+  pointer-events: none;
+
+  &--show {
+    display: flex;
+  }
 }
 
 .rsRewiev__meta {
