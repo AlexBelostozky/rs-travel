@@ -64,7 +64,7 @@
 
       <div class="rsRewiev__meta">
         <time class="rsRewiev__date" datetime="2022-06-27">
-          {{ rewievData.date }}
+          {{ formatRewievDate(rewievData.date) }}
         </time>
 
         <a class="rsRewiev__comments-link" href="#">
@@ -104,6 +104,8 @@
 </template>
 
 <script>
+import moment from "moment";
+
 export default {
   name: "rsRewiev",
   props: {
@@ -174,6 +176,57 @@ export default {
       } else {
         this.commentsWord = "комментариев";
       }
+    },
+
+    formatRewievDate(date) {
+      const now = moment();
+      const reviewDate = moment(date);
+
+      if (now.isSame(reviewDate, "day")) {
+        return "сегодня";
+      } else if (now.clone().subtract(1, "day").isSame(reviewDate, "day")) {
+        return "вчера";
+      } else if (now.diff(reviewDate, "days") < 7) {
+        return `${now.diff(reviewDate, "days")} ${this.pluralize(
+          now.diff(reviewDate, "days"),
+          ["день", "дня", "дней"]
+        )} назад`;
+      } else if (now.diff(reviewDate, "days") < 30) {
+        return `${now.diff(reviewDate, "weeks")} ${this.pluralize(
+          now.diff(reviewDate, "weeks"),
+          ["неделя", "недели", "недель"]
+        )} назад`;
+      } else if (now.diff(reviewDate, "days") < 365) {
+        return `${now.diff(reviewDate, "months")} ${this.pluralize(
+          now.diff(reviewDate, "months"),
+          ["месяц", "месяца", "месяцев"]
+        )} назад`;
+      } else {
+        const yearsAgo = now.diff(reviewDate, "years");
+        const monthsAgo = now.diff(reviewDate, "months");
+        if (monthsAgo % 12 === 0 && yearsAgo >= 1) {
+          return `около ${yearsAgo} ${this.pluralize(yearsAgo, [
+            "года",
+            "лет",
+            "лет",
+          ])} назад`;
+        } else {
+          return `около ${monthsAgo} ${this.pluralize(monthsAgo, [
+            "месяца",
+            "месяцев",
+            "месяцев",
+          ])} назад`;
+        }
+      }
+    },
+
+    pluralize(count, words) {
+      const cases = [2, 0, 1, 1, 1, 2];
+      return words[
+        count % 100 > 4 && count % 100 < 20
+          ? 2
+          : cases[count % 10 < 5 ? count % 10 : 5]
+      ];
     },
   },
 };
