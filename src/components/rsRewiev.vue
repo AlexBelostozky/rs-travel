@@ -72,7 +72,7 @@
           <span class="rsRewiev__comments-count">
             {{ rewievData.commentsCount }}
           </span>
-          комментариев
+          {{ this.commentsWord }}
         </a>
 
         <div class="rsRewiev__likes-wrapper">
@@ -119,12 +119,15 @@ export default {
     return {
       photosUplimit: 0,
       mainRewievPhotos: [],
+      commentsWord: "",
     };
   },
 
   mounted() {
     this.defineMainRewievPhotos();
     this.getPhotosUplimit();
+
+    this.formatCommentsPhrase();
   },
 
   computed: {
@@ -155,6 +158,22 @@ export default {
     getPhotosUplimit() {
       // eslint-disable-next-line prettier/prettier
       this.photosUplimit = this.rewievData.photos.length - this.mainRewievPhotos.length;
+    },
+
+    formatCommentsPhrase() {
+      const count = this.rewievData.commentsCount;
+      const lastDigit = count % 10;
+      const lastTwoDigits = count % 100;
+
+      if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+        this.commentsWord = "комментариев";
+      } else if (lastDigit === 1) {
+        this.commentsWord = "комментарий";
+      } else if (lastDigit >= 2 && lastDigit <= 4) {
+        this.commentsWord = "комментария";
+      } else {
+        this.commentsWord = "комментариев";
+      }
     },
   },
 };
