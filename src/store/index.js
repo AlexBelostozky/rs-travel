@@ -12,28 +12,28 @@ export default createStore({
         text: "Барселона – моя третья большая любовь, после Вены и Крита. Это город, в который я каждый раз возвращаюсь с огромным удовольствием, всем рекомендую хоть раз там побывать и осмотреть ...",
         photos: [
           {
-            thumbnail: "rewiev1.jpg",
-            full: "rewiev1-thumb.jpg",
+            thumbnail: "rewiev1-thumb.jpg",
+            full: "rewiev1.jpg",
           },
           {
-            thumbnail: "rewiev2.jpg",
-            full: "rewiev2-thumb.jpg",
+            thumbnail: "rewiev2-thumb.jpg",
+            full: "rewiev2.jpg",
           },
           {
-            thumbnail: "rewiev3.jpg",
-            full: "rewiev3-thumb.jpg",
+            thumbnail: "rewiev3-thumb.jpg",
+            full: "rewiev3.jpg",
           },
           {
-            thumbnail: "rewiev4.jpg",
-            full: "rewiev4-thumb.jpg",
+            thumbnail: "rewiev4-thumb.jpg",
+            full: "rewiev4.jpg",
           },
           {
-            thumbnail: "rewiev5.jpg",
-            full: "rewiev5-thumb.jpg",
+            thumbnail: "rewiev5-thumb.jpg",
+            full: "rewiev5.jpg",
           },
           {
-            thumbnail: "rewiev6.jpg",
-            full: "rewiev6-thumb.jpg",
+            thumbnail: "rewiev6-thumb.jpg",
+            full: "rewiev6.jpg",
           },
         ],
         date: "около 1 года назад",
@@ -50,28 +50,28 @@ export default createStore({
         text: "Плюсы города: весь город одни плюсы! Минусы города: не видела. В наш марафон по Европе не вписалось 2 испанских города от усталости - решили остаток путешествия провести в Барселоне ...",
         photos: [
           {
-            thumbnail: "rewiev1.jpg",
-            full: "rewiev1-thumb.jpg",
+            thumbnail: "rewiev1-thumb.jpg",
+            full: "rewiev1.jpg",
           },
           {
-            thumbnail: "rewiev2.jpg",
-            full: "rewiev2-thumb.jpg",
+            thumbnail: "rewiev2-thumb.jpg",
+            full: "rewiev2.jpg",
           },
           {
-            thumbnail: "rewiev3.jpg",
-            full: "rewiev3-thumb.jpg",
+            thumbnail: "rewiev3-thumb.jpg",
+            full: "rewiev3.jpg",
           },
           {
-            thumbnail: "rewiev4.jpg",
-            full: "rewiev4-thumb.jpg",
+            thumbnail: "rewiev4-thumb.jpg",
+            full: "rewiev4.jpg",
           },
           {
-            thumbnail: "rewiev5.jpg",
-            full: "rewiev5-thumb.jpg",
+            thumbnail: "rewiev5-thumb.jpg",
+            full: "rewiev5.jpg",
           },
           {
-            thumbnail: "rewiev6.jpg",
-            full: "rewiev6-thumb.jpg",
+            thumbnail: "rewiev6-thumb.jpg",
+            full: "rewiev6.jpg",
           },
         ],
         date: "5 месяцев назад",
@@ -88,28 +88,28 @@ export default createStore({
         text: "Барселона – моя третья большая любовь, после Вены и Крита. Это город, в который я каждый раз возвращаюсь с огромным удовольствием, всем рекомендую хоть раз там побывать и осмотреть ...",
         photos: [
           {
-            thumbnail: "rewiev1.jpg",
-            full: "rewiev1-thumb.jpg",
+            thumbnail: "rewiev1-thumb.jpg",
+            full: "rewiev1.jpg",
           },
           {
-            thumbnail: "rewiev2.jpg",
-            full: "rewiev2-thumb.jpg",
+            thumbnail: "rewiev2-thumb.jpg",
+            full: "rewiev2.jpg",
           },
           {
-            thumbnail: "rewiev3.jpg",
-            full: "rewiev3-thumb.jpg",
+            thumbnail: "rewiev3-thumb.jpg",
+            full: "rewiev3.jpg",
           },
           {
-            thumbnail: "rewiev4.jpg",
-            full: "rewiev4-thumb.jpg",
+            thumbnail: "rewiev4-thumb.jpg",
+            full: "rewiev4.jpg",
           },
           {
-            thumbnail: "rewiev5.jpg",
-            full: "rewiev5-thumb.jpg",
+            thumbnail: "rewiev5-thumb.jpg",
+            full: "rewiev5.jpg",
           },
           {
-            thumbnail: "rewiev6.jpg",
-            full: "rewiev6-thumb.jpg",
+            thumbnail: "rewiev6-thumb.jpg",
+            full: "rewiev6.jpg",
           },
         ],
         date: "3 месяца назад",
@@ -126,28 +126,28 @@ export default createStore({
         text: "Барселона – моя третья большая любовь, после Вены и Крита. Это город, в который я каждый раз возвращаюсь с огромным удовольствием, всем рекомендую хоть раз там побывать и осмотреть ...",
         photos: [
           {
-            thumbnail: "rewiev1.jpg",
-            full: "rewiev1-thumb.jpg",
+            thumbnail: "rewiev1-thumb.jpg",
+            full: "rewiev1.jpg",
           },
           {
-            thumbnail: "rewiev2.jpg",
-            full: "rewiev2-thumb.jpg",
+            thumbnail: "rewiev2-thumb.jpg",
+            full: "rewiev2.jpg",
           },
           {
-            thumbnail: "rewiev3.jpg",
-            full: "rewiev3-thumb.jpg",
+            thumbnail: "rewiev3-thumb.jpg",
+            full: "rewiev3.jpg",
           },
           {
-            thumbnail: "rewiev4.jpg",
-            full: "rewiev4-thumb.jpg",
+            thumbnail: "rewiev4-thumb.jpg",
+            full: "rewiev4.jpg",
           },
           {
-            thumbnail: "rewiev5.jpg",
-            full: "rewiev5-thumb.jpg",
+            thumbnail: "rewiev5-thumb.jpg",
+            full: "rewiev5.jpg",
           },
           {
-            thumbnail: "rewiev6.jpg",
-            full: "rewiev6-thumb.jpg",
+            thumbnail: "rewiev6-thumb.jpg",
+            full: "rewiev6.jpg",
           },
         ],
         date: "3 месяца назад",
@@ -164,28 +164,28 @@ export default createStore({
         text: "Барселона – моя третья большая любовь, после Вены и Крита. Это город, в который я каждый раз возвращаюсь с огромным удовольствием, всем рекомендую хоть раз там побывать и осмотреть ...",
         photos: [
           {
-            thumbnail: "rewiev1.jpg",
-            full: "rewiev1-thumb.jpg",
+            thumbnail: "rewiev1-thumb.jpg",
+            full: "rewiev1.jpg",
           },
           {
-            thumbnail: "rewiev2.jpg",
-            full: "rewiev2-thumb.jpg",
+            thumbnail: "rewiev2-thumb.jpg",
+            full: "rewiev2.jpg",
           },
           {
-            thumbnail: "rewiev3.jpg",
-            full: "rewiev3-thumb.jpg",
+            thumbnail: "rewiev3-thumb.jpg",
+            full: "rewiev3.jpg",
           },
           {
-            thumbnail: "rewiev4.jpg",
-            full: "rewiev4-thumb.jpg",
+            thumbnail: "rewiev4-thumb.jpg",
+            full: "rewiev4.jpg",
           },
           {
-            thumbnail: "rewiev5.jpg",
-            full: "rewiev5-thumb.jpg",
+            thumbnail: "rewiev5-thumb.jpg",
+            full: "rewiev5.jpg",
           },
           {
-            thumbnail: "rewiev6.jpg",
-            full: "rewiev6-thumb.jpg",
+            thumbnail: "rewiev6-thumb.jpg",
+            full: "rewiev6.jpg",
           },
         ],
         date: "3 месяца назад",
@@ -202,28 +202,28 @@ export default createStore({
         text: "Барселона – моя вторая большая любовь, после Кипра. Это город, в который я каждый раз возвращаюсь с огромным удовольствием, всем рекомендую хоть раз там побывать и осмотреть ...",
         photos: [
           {
-            thumbnail: "rewiev1.jpg",
-            full: "rewiev1-thumb.jpg",
+            thumbnail: "rewiev1-thumb.jpg",
+            full: "rewiev1.jpg",
           },
           {
-            thumbnail: "rewiev2.jpg",
-            full: "rewiev2-thumb.jpg",
+            thumbnail: "rewiev2-thumb.jpg",
+            full: "rewiev2.jpg",
           },
           {
-            thumbnail: "rewiev3.jpg",
-            full: "rewiev3-thumb.jpg",
+            thumbnail: "rewiev3-thumb.jpg",
+            full: "rewiev3.jpg",
           },
           {
-            thumbnail: "rewiev4.jpg",
-            full: "rewiev4-thumb.jpg",
+            thumbnail: "rewiev4-thumb.jpg",
+            full: "rewiev4.jpg",
           },
           {
-            thumbnail: "rewiev5.jpg",
-            full: "rewiev5-thumb.jpg",
+            thumbnail: "rewiev5-thumb.jpg",
+            full: "rewiev5.jpg",
           },
           {
-            thumbnail: "rewiev6.jpg",
-            full: "rewiev6-thumb.jpg",
+            thumbnail: "rewiev6-thumb.jpg",
+            full: "rewiev6.jpg",
           },
         ],
         date: "3 месяца назад",
@@ -232,6 +232,12 @@ export default createStore({
         likeStatus: false,
       },
     ],
+
+    gallery: {
+      showGallery: false,
+      photos: {},
+      selectedPhoto: "",
+    },
 
     users: [
       {
@@ -291,6 +297,18 @@ export default createStore({
         date: newMessage[1],
         text: newMessage[2],
       });
+    },
+
+    updateGalleryState(state, newState) {
+      state.gallery.showGallery = newState.showGallery;
+
+      if (newState) {
+        state.gallery.photos = newState.photos;
+        state.gallery.selectedPhoto = newState.selectedPhoto;
+      } else {
+        state.gallery.photos = {};
+        state.gallery.selectedPhoto = "";
+      }
     },
   },
   actions: {},

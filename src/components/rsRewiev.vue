@@ -40,6 +40,7 @@
             <img
               class="rsRewiev__photo"
               :src="require(`@/assets/images/content/${photo.thumbnail}`)"
+              @click.prevent="onThumbnailClick(photo.full, getMainRewievPhotos)"
               alt="Фото пользователя о поездке в Берселону"
               width="50"
               height="50"
@@ -100,14 +101,34 @@ export default {
       },
     },
   },
+
+  data() {
+    return {
+      // showGallery: false,
+      // galleryPhotos: [],
+      // galleyStartPhoto: "",
+    };
+  },
+
   computed: {
     getMainRewievPhotos() {
       return this.rewievData.photos.slice(0, 4);
     },
   },
+
   methods: {
     onLikesButtonClick() {
       this.$store.commit("updateLikeStatus", this.rewievData);
+    },
+
+    onThumbnailClick(selectedPhotoName, photos) {
+      let newGalleryState = {};
+
+      newGalleryState.showGallery = true;
+      newGalleryState.photos = photos;
+      newGalleryState.selectedPhoto = selectedPhotoName;
+
+      this.$store.commit("updateGalleryState", newGalleryState);
     },
   },
 };

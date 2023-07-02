@@ -4,6 +4,7 @@
     <rsAbout />
     <rsRewievs />
     <rsChat />
+    <rsGallery v-if="$store.state.gallery.showGallery" />
   </main>
 </template>
 
@@ -11,6 +12,7 @@
 import rsAbout from "./components/rsAbout.vue";
 import rsRewievs from "./components/rsRewievs.vue";
 import rsChat from "./components/rsChat.vue";
+import rsGallery from "./components/rsGallery.vue";
 
 export default {
   name: "rsTravel",
@@ -18,6 +20,7 @@ export default {
     rsAbout,
     rsRewievs,
     rsChat,
+    rsGallery,
   },
 };
 </script>
