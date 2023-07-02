@@ -31,10 +31,6 @@ export default createStore({
             thumbnail: "rewiev5-thumb.jpg",
             full: "rewiev5.jpg",
           },
-          {
-            thumbnail: "rewiev6-thumb.jpg",
-            full: "rewiev6.jpg",
-          },
         ],
         date: "около 1 года назад",
         commentsCount: 9,
@@ -98,18 +94,6 @@ export default createStore({
           {
             thumbnail: "rewiev3-thumb.jpg",
             full: "rewiev3.jpg",
-          },
-          {
-            thumbnail: "rewiev4-thumb.jpg",
-            full: "rewiev4.jpg",
-          },
-          {
-            thumbnail: "rewiev5-thumb.jpg",
-            full: "rewiev5.jpg",
-          },
-          {
-            thumbnail: "rewiev6-thumb.jpg",
-            full: "rewiev6.jpg",
           },
         ],
         date: "3 месяца назад",
@@ -178,14 +162,6 @@ export default createStore({
           {
             thumbnail: "rewiev4-thumb.jpg",
             full: "rewiev4.jpg",
-          },
-          {
-            thumbnail: "rewiev5-thumb.jpg",
-            full: "rewiev5.jpg",
-          },
-          {
-            thumbnail: "rewiev6-thumb.jpg",
-            full: "rewiev6.jpg",
           },
         ],
         date: "3 месяца назад",

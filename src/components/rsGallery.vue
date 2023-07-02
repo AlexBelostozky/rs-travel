@@ -21,32 +21,32 @@
           />
         </li>
       </ul>
-      <nav class="rsGallery__nav">
-        <button
-          class="rsGallery__button rsGallery__button--prev"
-          type="button"
-          @click="onPrevButtonClick()"
-        >
-          &lt; Назад
-        </button>
-
-        <button
-          class="rsGallery__button rsGallery__button--next"
-          type="button"
-          @click="onNextButtonClick()"
-        >
-          Вперёд &gt;
-        </button>
-      </nav>
+    </div>
+    <nav class="rsGallery__nav">
+      <button
+        class="rsGallery__button rsGallery__button--prev"
+        type="button"
+        @click="onPrevButtonClick()"
+      >
+        &lt; Назад
+      </button>
 
       <button
-        class="rsGallery__button rsGallery__button--close"
+        class="rsGallery__button rsGallery__button--next"
         type="button"
-        @click="onCloseButtonClick()"
+        @click="onNextButtonClick()"
       >
-        Закрыть
+        Вперёд &gt;
       </button>
-    </div>
+    </nav>
+
+    <button
+      class="rsGallery__button rsGallery__button--close"
+      type="button"
+      @click="onCloseButtonClick()"
+    >
+      Закрыть
+    </button>
   </div>
 </template>
 
@@ -219,6 +219,6 @@ export default {
 .rsGallery__button--close {
   position: absolute;
   top: 100px;
-  left: 0;
+  left: 30px;
 }
 </style>

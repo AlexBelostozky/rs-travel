@@ -40,7 +40,7 @@
             <img
               class="rsRewiev__photo"
               :src="require(`@/assets/images/content/${photo.thumbnail}`)"
-              @click.prevent="onThumbnailClick(photo.full, getMainRewievPhotos)"
+              @click.prevent="onThumbnailClick(photo.full, rewievData.photos)"
               alt="Фото пользователя о поездке в Берселону"
               width="50"
               height="50"
